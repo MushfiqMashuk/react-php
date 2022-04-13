@@ -1,9 +1,19 @@
-import React from 'react'
+import React from "react";
 
-function Radio() {
+function Radio({ params: { title, required, value } }) {
   return (
-    <div>Radio</div>
-  )
+    <div>
+      <div>
+        <label htmlFor="radioButton">{title}</label>
+        <input
+          type="radio"
+          id="radioButton"
+          value={value}
+          required={required}
+        />
+      </div>
+    </div>
+  );
 }
 
-export default Radio
+export default Radio;

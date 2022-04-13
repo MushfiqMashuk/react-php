@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
 function Email() {
   return (
-    <div>Email</div>
-  )
+    <div>
+      Email
+    </div>
+  );
 }
 
-export default Email
+export default Email;

@@ -6,20 +6,21 @@ import Select from "../Select";
 import TextArea from "../TextArea";
 
 function InputElement({ field }) {
-  const { title, type, value } = field;
+  const { title, type, value, required } = field;
+  const params = { title, value, required };
   switch (type) {
     case "text":
-      return <Input />;
+      return <Input params={params} />;
     case "checkbox":
-      return <Checkbox />;
+      return <Checkbox params={params} />;
     case "radio":
-      return <Radio />;
+      return <Radio params={params} />;
     case "textarea":
-      return <TextArea />;
+      return <TextArea params={params} />;
     case "select":
-      return <Select />;
+      return <Select params={params} />;
     case "email":
-      return <Email />;
+      return <Email params={params} />;
 
     default:
       return null;
