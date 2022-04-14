@@ -1,9 +1,11 @@
 import React from "react";
+import "./input.scss";
 
-function Input() {
+function Input({ params: { title, required, value } }) {
   return (
-    <div>
-      <input type="text" />
+    <div className="input_container">
+      <label className="label">{title}</label>
+      <input type="text" required={required} />
     </div>
   );
 }

@@ -1,9 +1,10 @@
 import React from "react";
 
-function Email() {
+function Email({ params: { title, required, value } }) {
   return (
-    <div>
-      Email
+    <div className="email_container">
+      <label className="label">{title}</label>
+      <input type="email" required={required} />
     </div>
   );
 }
