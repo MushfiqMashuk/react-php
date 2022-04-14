@@ -1,6 +1,6 @@
 import React from "react";
 
-function Email({ params: { title, required, value } }) {
+function Email({ field: { title, required } }) {
   return (
     <div className="email_container">
       <label className="label">{title}</label>

@@ -1,6 +1,6 @@
 import React from "react";
 
-function Radio({ params: { title, required }, options }) {
+function Radio({ field: { title, required, options } }) {
   return (
     <div>
       <div>

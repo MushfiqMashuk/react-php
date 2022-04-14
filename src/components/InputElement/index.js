@@ -6,21 +6,21 @@ import Select from "../Select";
 import TextArea from "../TextArea";
 
 function InputElement({ field }) {
-  const { title, type, value, required, options, html_attr } = field;
-  const params = { title, value, required, html_attr };
-  switch (type) {
+  //const { title, type, value, required, options, html_attr } = field;
+  //const params = { title, value, required, html_attr };
+  switch (field.type) {
     case "text":
-      return <Input params={params} />;
+      return <Input field={field} />;
     case "checkbox":
-      return <Checkbox params={params} />;
+      return <Checkbox field={field} />;
     case "radio":
-      return <Radio params={params} options={options}/>;
+      return <Radio field={field} />;
     case "textarea":
-      return <TextArea params={params} />;
+      return <TextArea field={field} />;
     case "select":
-      return <Select params={params} />;
+      return <Select field={field} />;
     case "email":
-      return <Email params={params} />;
+      return <Email field={field} />;
 
     default:
       return null;

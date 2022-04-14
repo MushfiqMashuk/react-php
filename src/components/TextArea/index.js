@@ -1,10 +1,11 @@
 import React from "react";
+import "./textArea.scss";
 
-function TextArea({ params: { title, required, value } }) {
+function TextArea({ field: { title, required } }) {
   return (
     <div className="textArea_container">
       <label className="label">{title}</label>
-      <textarea required={required} value={value} rows="5" cols="50"></textarea>
+      <textarea required={required} rows="5" cols="50"></textarea>
     </div>
   );
 }

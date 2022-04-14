@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Form from "../../components/Form";
 import InputElement from "../../components/InputElement";
 
 function FormPage() {
@@ -23,9 +24,11 @@ function FormPage() {
 
   return (
     <div>
-      {formFields.map((field, index) => (
-        <InputElement key={index} field={field[1]} />
-      ))}
+      <Form>
+        {formFields.map((field, index) => (
+          <InputElement key={index} field={field[1]} />
+        ))}
+      </Form>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import "./input.scss";
 
-function Input({ params: { title, required, value } }) {
+function Input({ field: { title, required, options } }) {
   return (
     <div className="input_container">
       <label className="label">{title}</label>
