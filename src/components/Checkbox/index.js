@@ -1,6 +1,6 @@
 const Checkbox = ({ field: { title, required, options } }) => {
   return (
-    <div className="mb-3 form-check">
+    <div className="field_margin">
       <input
         type="checkbox"
         className="form-check-input"

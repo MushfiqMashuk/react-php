@@ -1,14 +1,21 @@
 import React from "react";
 
-function Select({ field: { title, required, options } }) {
+function Select({
+  field: { title, required, options, default: defaultValue },
+}) {
   return (
-    <div>
-      <p>{title}</p>
+    <div className="field_margin">
+      <label htmlFor="cars" className="label_margin">
+        {title}
+      </label>
       <select name="cars" id="cars" required={required}>
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="opel">Opel</option>
-        <option value="audi">Audi</option>
+        {options &&
+          options.length > 0 &&
+          options.map((option, i) => (
+            <option key={i} value={option.key} defaultValue={defaultValue}>
+              {option.label}
+            </option>
+          ))}
       </select>
     </div>
   );
