@@ -5,22 +5,22 @@ import Radio from "../Radio";
 import Select from "../Select";
 import TextArea from "../TextArea";
 
-function InputElement({ field }) {
+function InputElement({ field, fieldName }) {
   //const { title, type, value, required, options, html_attr } = field;
   //const params = { title, value, required, html_attr };
   switch (field.type) {
     case "text":
-      return <Input field={field} />;
+      return <Input field={field} fieldName={fieldName} />;
     case "checkbox":
-      return <Checkbox field={field} />;
+      return <Checkbox field={field} fieldName={fieldName} />;
     case "radio":
-      return <Radio field={field} />;
+      return <Radio field={field} fieldName={fieldName} />;
     case "textarea":
-      return <TextArea field={field} />;
+      return <TextArea field={field} fieldName={fieldName} />;
     case "select":
-      return <Select field={field} />;
+      return <Select field={field} fieldName={fieldName} />;
     case "email":
-      return <Email field={field} />;
+      return <Email field={field} fieldName={fieldName} />;
 
     default:
       return null;

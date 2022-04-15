@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Form from "../../components/Form";
 import InputElement from "../../components/InputElement";
+import { FormContext } from "../../context/FormContext";
 
 function FormPage() {
   const [formFields, setFormFields] = useState([]);
@@ -9,7 +10,7 @@ function FormPage() {
   useEffect(() => {
     const getForm = async () => {
       try {
-        const response = await axios.get("http://localhost/api/get_form.php");
+        const response = await axios.get(process.env.REACT_APP_GET_FORM);
         const formData = response?.data;
         console.log(formData.data);
         console.log(Object.entries(formData.data.fields[0]));
@@ -22,13 +23,28 @@ function FormPage() {
     getForm();
   }, []);
 
+  const handleChange = (fieldName, event) => {
+    const targetElement = event.target;
+
+    const newFields = [...formFields];
+    newFields.forEach((field) => {
+      if (fieldName === field[0]) {
+        field[1].value = targetElement.value;
+      }
+    });
+
+    setFormFields(newFields);
+  };
+
   return (
     <div>
-      <Form>
-        {formFields.map((field, index) => (
-          <InputElement key={index} field={field[1]} />
-        ))}
-      </Form>
+      <FormContext.Provider value={{ handleChange }}>
+        <Form>
+          {formFields.map((field, index) => (
+            <InputElement key={index} field={field[1]} fieldName={field[0]} />
+          ))}
+        </Form>
+      </FormContext.Provider>
     </div>
   );
 }

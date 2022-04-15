@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { FormContext } from "../../context/FormContext";
 
-function Radio({ field: { title, required, options } }) {
+function Radio({ field: { title, required, options }, fieldName }) {
+
+  const { handleChange } = useContext(FormContext);
+
   return (
     <div className="field_margin">
       <p>{title}</p>
@@ -14,6 +18,7 @@ function Radio({ field: { title, required, options } }) {
               value={option.key}
               required={required}
               name={title.toLowerCase()}
+              onChange={(e) => handleChange(fieldName, e)}
             />
             <label htmlFor={`option${i}`}>{option.label}</label>
           </div>
